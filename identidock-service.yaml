@@ -9,5 +9,5 @@ spec:
   ports:
     - port: 80 # SERVICE exposed port
       protocol: TCP # The protocol the SERVICE will listen to
-      targetPort: 9090 # Port to forward to in the POD
+      targetPort: 5000 # Port to forward to in the POD
 

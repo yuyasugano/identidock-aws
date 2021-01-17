@@ -34,11 +34,19 @@ kubectl create -f dnmonster-service.yaml
 kubectl create -f identidock-replicaset.yaml
 kubectl create -f identidock-service.yaml
 kubectl get pods -o wide
+kubectl get rs -o wide
 kubectl get services -o wide
 ```
 - delete the EKS cluster
 ```
 eksctl delete cluster --name <cluster name>
+```
+ 
+## Troubleshooting
+- container logs
+```
+kubectl logs <pod name>
+kubectl exec -it <pod name> /bin/bash
 ```
  
 ## License

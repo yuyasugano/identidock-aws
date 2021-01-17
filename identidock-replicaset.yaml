@@ -15,6 +15,9 @@ spec:
       containers:
         - image: <account>.dkr.ecr.<region>.amazonaws.com/identidock-aws
           name: identidock
+          env:
+            - name: ENV
+              value: DEV 
           ports:
-            - containerPort: 5000 # This container exposes port 9090
+            - containerPort: 5000 # This container exposes port 5000 for DEV
               name: tcp # We named that port "tcp" so we can refer to it later
