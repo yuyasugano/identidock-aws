@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # Where in the API it resides
+kind: ReplicaSet # The kind of workload we're creating
+metadata:
+  name: dnmonster-controller # This will be the name of the deployment
+spec:
+  replicas: 1 # The number of replica
+  selector: # Define the wrapping srategy
+    matchLabels: # Match all pods with the defined labels
+      app: dnmonster-pod # Labels follow the `name: value` template
+  template: # This is the template of the pod inside the deployment
+    metadata: # Metadata for the pod
+      labels:
+        app: dnmonster-pod
+    spec:
+      containers:
+        - image: amouat/dnmonster:1.0
+          name: dnmonster
+          ports:
+            - containerPort: 8080 # This container exposes port 8080
+              name: tcp # We named that port "tcp" so we can refer to it later

@@ -1,0 +1,13 @@
+apiVersion: v1 # Where in the API it resides
+kind: Service # The kind of workload we're creating
+metadata:
+  name: identidock # This will be the name of the deployment
+spec:
+  type: LoadBalancer
+  selector: # Define the wrapping srategy
+    app: identidock-pod # Labels follow the `name: value` template
+  ports:
+    - port: 80 # SERVICE exposed port
+      protocol: TCP # The protocol the SERVICE will listen to
+      targetPort: 9090 # Port to forward to in the POD
+
